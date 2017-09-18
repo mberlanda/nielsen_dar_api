@@ -5,7 +5,16 @@ RSpec.describe NielsenDarApi do
     expect(NielsenDarApi::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  context "should have some default configuration" do
+    before(:all) do
+      NielsenDarApi.configure {}
+    end
+    subject { NielsenDarApi.configuration }
+
+    it { should respond_to(:auth_url) }
+    it { should respond_to(:base_url) }
+    it { should respond_to(:country_code) }
+    it { should respond_to(:date_format) }
   end
+
 end
