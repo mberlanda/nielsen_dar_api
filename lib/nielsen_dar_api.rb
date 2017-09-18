@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nielsen_dar_api/version'
 require 'nielsen_dar_api/configuration'
 require 'nielsen_dar_api/endpoint'

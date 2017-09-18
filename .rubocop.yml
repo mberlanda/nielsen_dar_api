@@ -1,0 +1,12 @@
+AllCops:
+  TargetRubyVersion: 2.4
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 35
+  Exclude:
+    - spec/**/*
+Metrics/LineLength:
+  Max: 125
+Style/Encoding:
+  Enabled: false

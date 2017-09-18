@@ -1,11 +1,13 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 RSpec.describe NielsenDarApi do
-  it "has a version number" do
+  it 'has a version number' do
     expect(NielsenDarApi::VERSION).not_to be nil
   end
 
-  context "has some default configuration" do
+  context 'has some default configuration' do
     before(:all) do
       NielsenDarApi.configure {}
     end
@@ -20,14 +22,14 @@ RSpec.describe NielsenDarApi do
     it { should respond_to(:basic_token) }
     it { should respond_to(:grant_type) }
 
-    it "should fail validate_credentials!" do
-      expect {
+    it 'should fail validate_credentials!' do
+      expect do
         NielsenDarApi.configuration.validate_credentials!
-      }.to raise_error( NoMethodError, /Please define/)
+      end.to raise_error(NoMethodError, /Please define/)
     end
   end
 
-  context "requires some configuration" do
+  context 'requires some configuration' do
     before do
       NielsenDarApi.configure do |config|
         config.username = 'someone@example.com'
@@ -35,7 +37,7 @@ RSpec.describe NielsenDarApi do
         config.basic_token = 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA=='
       end
     end
-    it "should pass validate_credentials! with username, password and basic_token" do
+    it 'should pass validate_credentials! with username, password and basic_token' do
       expect(NielsenDarApi.configuration.validate_credentials!).to be(true)
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NielsenDarApi
   class Configuration
     attr_accessor :auth_url, :base_url, :country_code, :date_format,
@@ -15,7 +17,7 @@ module NielsenDarApi
     end
 
     def validate_credentials!
-      [:username, :password, :basic_token, :grant_type].each do |m|
+      %i[username password basic_token grant_type].each do |m|
         send(m) || required_field(m)
       end
       true

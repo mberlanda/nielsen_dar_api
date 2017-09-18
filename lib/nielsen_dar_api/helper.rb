@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nielsen_dar_api/helper/query_builder'
 
 module NielsenDarApi
