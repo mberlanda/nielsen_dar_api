@@ -17,7 +17,7 @@ And then execute:
 
     $ bundle
 
-## Usage
+## Rails Usage
 
 Assuming that you are using it inside a Rails Application, you should create an initializer as follows:
 
@@ -29,6 +29,40 @@ NielsenDarApi.configure do |config|
   config.basic_token = ENV['NIELSEN_DAR_BASIC_TOKEN'] # or something like 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA=='
 end
 ```
+
+## Standalone Usage
+
+
+```rb
+# example.rb
+require 'nielsen_dar_api'
+require 'date'
+
+NielsenDarApi.configure do |config|
+  config.username = ENV['NIELSEN_DAR_USERNAME'] # or something like 'someone@example.com'
+  config.password = ENV['NIELSEN_DAR_PASSWORD'] # or something like 'password'
+  config.basic_token = ENV['NIELSEN_DAR_BASIC_TOKEN'] # or something like 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA=='
+end
+
+class SampleClient
+  include NielsenDarApi::Helper
+end
+
+client = SampleClient.new
+available_campaigns = client.available_campaign_list
+demographics = client.demographic_list
+market_areas = client.market_area_list
+platforms = client.platform_list
+
+campaigns_map = Hash[ available_campaigns.map do |h|
+  [h['campaignId'], Date.strptime(h['reportDate'], NielsenDarApi.configuration.date_format)]
+end]
+report_date = campaigns_map.values.max
+
+campaigns = client.campaign_list(report_date)
+sites = client.site_list(campaigns_map)
+```
+
 
 ## Development
 
