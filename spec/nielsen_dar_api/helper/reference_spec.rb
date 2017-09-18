@@ -16,5 +16,4 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   it { should respond_to(:market_area_list) }
   it { should respond_to(:platform_list) }
   it { should respond_to(:site_list) }
-
 end

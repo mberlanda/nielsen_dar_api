@@ -38,9 +38,6 @@ module NielsenDarApi
           rescue RestClient::InternalServerError, RestClient::BadGateway
             sleep(0.8)
             site_request_thread(cfg, result, original_id, report_date)
-          rescue RestClient::TooManyRequests
-            sleep(1.8)
-            site_request_thread(cfg, result, original_id, report_date)
           end
         end
       end
