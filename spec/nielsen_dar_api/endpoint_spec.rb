@@ -31,51 +31,69 @@ RSpec.describe NielsenDarApi::Endpoint do
       expect(
         NielsenDarApi::Endpoint.send(:default_endpoint,
                                      url: 'campaignratings/v2/CampaignDataAvailability')
-      ).to eq(method: :get,
+      ).to eq(method: :post,
               url: 'campaignratings/v2/CampaignDataAvailability')
     end
   end
 
   context 'generates config for known endpoints' do
     it '#available_campaign_reference' do
-      expect(NielsenDarApi::Endpoint.available_campaign_reference).to eq(method: :get,
-                                                                         url: 'campaignratings/v2/CampaignDataAvailability')
+      expect(NielsenDarApi::Endpoint.available_campaign_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v2/CampaignDataAvailability'
+      )
     end
     it '#campaign_reference' do
-      expect(NielsenDarApi::Endpoint.campaign_reference).to eq(method: :post,
-                                                               url: 'campaignratings/v3/CampaignReference')
+      expect(NielsenDarApi::Endpoint.campaign_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v3/CampaignReference'
+      )
     end
     it '#demographic_reference' do
-      expect(NielsenDarApi::Endpoint.demographic_reference).to eq(method: :get,
-                                                                  url: 'campaignratings/v1/DemographicReference')
+      expect(NielsenDarApi::Endpoint.demographic_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v1/DemographicReference'
+      )
     end
     it '#market_area_reference' do
-      expect(NielsenDarApi::Endpoint.market_area_reference).to eq(method: :get,
-                                                                  url: 'campaignratings/v1/MarketReference')
+      expect(NielsenDarApi::Endpoint.market_area_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v1/MarketReference'
+      )
     end
     it '#platform_reference' do
-      expect(NielsenDarApi::Endpoint.platform_reference).to eq(method: :get,
-                                                               url: 'campaignratings/v1/PlatformReference')
+      expect(NielsenDarApi::Endpoint.platform_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v1/PlatformReference'
+      )
     end
     it '#campaign_site_reference' do
-      expect(NielsenDarApi::Endpoint.campaign_site_reference).to eq(method: :get,
-                                                                    url: 'campaignratings/v3/CampaignSiteReference')
+      expect(NielsenDarApi::Endpoint.campaign_site_reference).to eq(
+        method: :post,
+        url: 'campaignratings/v3/CampaignSiteReference'
+      )
     end
     it '#campaign_exposure' do
-      expect(NielsenDarApi::Endpoint.campaign_exposure).to eq(method: :get,
-                                                              url: 'campaignratings/v5/CampaignExposure')
+      expect(NielsenDarApi::Endpoint.campaign_exposure).to eq(
+        method: :post,
+        url: 'campaignratings/v5/CampaignExposure'
+      )
     end
     it '#placement_exposure' do
-      expect(NielsenDarApi::Endpoint.placement_exposure).to eq(method: :get,
+      expect(NielsenDarApi::Endpoint.placement_exposure).to eq(method: :post,
                                                                url: 'campaignratings/v4/CampaignPlacementExposure')
     end
     it '#campaign_dma_exposure' do
-      expect(NielsenDarApi::Endpoint.campaign_dma_exposure).to eq(method: :get,
-                                                                  url: 'campaignratings/v3/CampaignDMAExposure')
+      expect(NielsenDarApi::Endpoint.campaign_dma_exposure).to eq(
+        method: :post,
+        url: 'campaignratings/v3/CampaignDMAExposure'
+      )
     end
     it '#placement_daily_datum' do
-      expect(NielsenDarApi::Endpoint.placement_daily_datum).to eq(method: :get,
-                                                                  url: 'campaignratings/v3/CampaignPlacementExpCustomRange')
+      expect(NielsenDarApi::Endpoint.placement_daily_datum).to eq(
+        method: :post,
+        url: 'campaignratings/v3/CampaignPlacementExpCustomRange'
+      )
     end
   end
 end

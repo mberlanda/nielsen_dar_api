@@ -5,10 +5,6 @@ require 'spec_helper'
 RSpec.describe NielsenDarApi::Helper::QueryBuilder do
   let(:query_builder) { Class.new.extend(NielsenDarApi::Helper::QueryBuilder) }
 
-  before(:all) do
-    NielsenDarApi.configure {}
-  end
-
   context 'should compose_url' do
     it 'works with default base_url' do
       expect(query_builder.compose_url('foo', 'bar')).to eq(

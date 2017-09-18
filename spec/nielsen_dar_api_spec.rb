@@ -8,9 +8,6 @@ RSpec.describe NielsenDarApi do
   end
 
   context 'has some default configuration' do
-    before(:all) do
-      NielsenDarApi.configure {}
-    end
     subject { NielsenDarApi.configuration }
 
     it { should respond_to(:auth_url) }

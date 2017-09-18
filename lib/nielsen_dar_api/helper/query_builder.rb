@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'rest_client'
 
 module NielsenDarApi
   module Helper

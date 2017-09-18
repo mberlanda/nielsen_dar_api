@@ -8,8 +8,7 @@ module NielsenDarApi
       end
 
       def campaign_reference
-        @campaign_reference ||= default_endpoint(method: :post,
-                                                 url: 'campaignratings/v3/CampaignReference')
+        @campaign_reference ||= default_endpoint(url: 'campaignratings/v3/CampaignReference')
       end
 
       def demographic_reference
@@ -51,7 +50,7 @@ module NielsenDarApi
         raise ArgumentError, 'You should provide an url for the endpoint' unless url
         raise ArgumentError, 'You should provide a valid url for the endpoint' if url.to_s.empty?
         {
-          method: :get,
+          method: :post,
           url: nil
         }.merge(options)
       end
