@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mauro.berlanda@gmail.com"]
 
   spec.summary       = "Ruby gem to call Nielsen DAR API"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mberlanda/nielsen_dar_api"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

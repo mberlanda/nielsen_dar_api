@@ -1,28 +1,36 @@
 # NielsenDarApi
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nielsen_dar_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The purpose of this gem is to make calls to Nielsen DAR reporting API.
+It may be not include all possible endpoints.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'nielsen_dar_api'
+git 'https://github.com/mberlanda/nielsen_dar_api.git', branch: 'master' do
+  gem 'nielsen_dar_api'
+end
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install nielsen_dar_api
-
 ## Usage
 
-TODO: Write usage instructions here
+Assuming that you are using it inside a Rails Application, you should create an initializer as follows:
+
+```rb
+# config/initializers/nielsen_dar_api.rb
+NielsenDarApi.configure do |config|
+  config.username = ENV['NIELSEN_DAR_USERNAME'] # or something like 'someone@example.com'
+  config.password = ENV['NIELSEN_DAR_PASSWORD'] # or something like 'password'
+  config.basic_token = ENV['NIELSEN_DAR_BASIC_TOKEN'] # or something like 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA=='
+end
+```
+
+
 
 ## Development
 
@@ -32,5 +40,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nielsen_dar_api.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mberlanda/nielsen_dar_api.
 
