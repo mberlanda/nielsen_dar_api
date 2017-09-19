@@ -16,15 +16,14 @@ end
 
 client = SampleClient.new
 
+## PROCESS REFERENCES
+
 # process_available_campaigns
 available_campaigns = client.available_campaign_list
-
 # process_demographics
 demographics = client.demographic_list
-
 # process_platforms
 platforms = client.platform_list
-
 # process_market_areas
 market_areas = client.market_area_list
 
@@ -40,7 +39,6 @@ campaigns_map = Hash[available_campaigns.map do |h|
   [h['campaignId'], Date.strptime(h['reportDate'], NielsenDarApi.configuration.date_format)]
 end]
 report_date = campaigns_map.values.max
-
 # process_campaigns
 campaigns = client.campaign_list(report_date)
 
@@ -52,19 +50,22 @@ campaigns_map.each_slice(chunk_size) do |chunk|
   sites << client.site_list(chunk)
 end
 
+## PROCESS EXPOSURES
+
 # process_campaign_exposures
 # retrieves all data for campaigns exposure
 campaign_data = []
 campaigns_map.each_slice(chunk_size) do |chunk|
   campaign_data << client.campaign_exposure_list(chunk)
 end
+campaign_data.flatten!
 
 # process_placement_exposures
 placement_data = []
 campaigns_map.each_slice(chunk_size) do |chunk|
   placement_data << client.placement_exposure_list(chunk)
 end
-
+placement_data.flatten!
 
 # process_placement_daily_data
 # This is pretty tricky
@@ -80,10 +81,10 @@ end]
 max_dates = {} # if already collected and stored somewhere
 
 placement_daily_data = []
-report_dates.each do |original_id, report_date|
+report_dates.each do |original_id, rep_date|
   client.refresh_access_token
   start_date = [start_dates.fetch(original_id), max_dates[original_id]].compact.max
-  end_date = [end_dates.fetch(original_id), report_date].min
+  end_date = [end_dates.fetch(original_id), rep_date].min
   range_dates = (start_date..end_date).to_a
 
   range_dates.each_slice(5) do |date_slice|
@@ -91,3 +92,4 @@ report_dates.each do |original_id, report_date|
     placement_daily_data << list
   end
 end
+placement_daily_data.flatten!

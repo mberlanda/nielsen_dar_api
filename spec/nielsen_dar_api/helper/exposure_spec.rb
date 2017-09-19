@@ -10,33 +10,32 @@ RSpec.describe NielsenDarApi::Helper::Exposure do
   let(:exposer) { MockedClient.new }
   let(:campaign_exposure_keys) do
     %w[
-        campaignDataDate campaignId platformId countryCode demoGroupId demoId
-        siteId reach impressions universeEstimate viewableRateAverage
-        measuredRateAverage viewableImpressions viewableImpressionsPercentage
-        outOfViewImpressions outOfViewImpressionsPercentage undeterminedImpressions
-        undeterminedImpressionsPercentage suspiciousImpressions suspiciousImpressionsPercentage
-        viewableReach
-      ]
+      campaignDataDate campaignId platformId countryCode demoGroupId demoId
+      siteId reach impressions universeEstimate viewableRateAverage
+      measuredRateAverage viewableImpressions viewableImpressionsPercentage
+      outOfViewImpressions outOfViewImpressionsPercentage undeterminedImpressions
+      undeterminedImpressionsPercentage suspiciousImpressions suspiciousImpressionsPercentage
+      viewableReach
+    ]
   end
   # Excluding viewableRateAverage measuredRateAverage outOfViewImpressions outOfViewImpressionsPercentage
   let(:placement_exposure_keys) do
     %w[
-        campaignDataDate campaignId platformId countryCode demoGroupId demoId
-        siteId reach impressions universeEstimate viewableImpressions
-        viewableImpressionsPercentage undeterminedImpressions undeterminedImpressionsPercentage
-        suspiciousImpressions suspiciousImpressionsPercentage viewableReach
-      ]
+      campaignDataDate campaignId platformId countryCode demoGroupId demoId
+      siteId reach impressions universeEstimate viewableImpressions
+      viewableImpressionsPercentage undeterminedImpressions undeterminedImpressionsPercentage
+      suspiciousImpressions suspiciousImpressionsPercentage viewableReach
+    ]
   end
   # Excluding reach viewableReach
   let(:placement_datum_exposure_keys) do
     %w[
-        campaignDataDate campaignId platformId countryCode demoGroupId demoId
-        siteId impressions universeEstimate viewableImpressions
-        viewableImpressionsPercentage undeterminedImpressions undeterminedImpressionsPercentage
-        suspiciousImpressions suspiciousImpressionsPercentage
-      ]
+      campaignDataDate campaignId platformId countryCode demoGroupId demoId
+      siteId impressions universeEstimate viewableImpressions
+      viewableImpressionsPercentage undeterminedImpressions undeterminedImpressionsPercentage
+      suspiciousImpressions suspiciousImpressionsPercentage
+    ]
   end
-
 
   subject { exposer }
   it { should respond_to(:campaign_exposure_list) }

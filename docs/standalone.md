@@ -48,9 +48,24 @@ client = SampleClient.new
 
 When I work on Nielsen DAR Reporting API I tend to follow this flow for every import routine:
 
+- process references: collect all details for every entity
+- process exposures: collect exposure overall campaign and placement data + placement daily data
+
+### 4. Process References
+
+In this first step the gem handles
+
 - process_available_campaigns : check which campaigns are available for my account
 - process_demographics : get details about available demographic groups (e.g. All, Female, Female 12-17 ...)
 - process_platforms : get details about available platforms (e.g. Computer, Mobile, Total-Digital ...)
 - process_market_areas : get details about available market areas (this feature seems to be available only for US `countryCode`)
 - process_campaigns : get details about campaigns
 - process_placements : get details about the sites where the available campaigns are tracked
+
+### 5. Process Exposures
+
+In this first step the gem handles:
+
+- process_campaign_exposures : gets overall campaign exposure data (either it is finished or not)
+- process_placement_exposures : gets overall placement exposure data (either the campaign is finished or not)
+- process_placement_daily_data : gets daily placement exposure data

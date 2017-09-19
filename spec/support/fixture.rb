@@ -4,7 +4,7 @@ module Support
   class Fixture
     class << self
       Dir.glob(File.expand_path('../data/*.json', __FILE__)).each do |file|
-        method_name = File.basename( file, '.*' )
+        method_name = File.basename(file, '.*')
         define_method(method_name) do
           JSON.parse(File.read(file))
         end
