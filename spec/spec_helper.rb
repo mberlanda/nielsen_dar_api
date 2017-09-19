@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'nielsen_dar_api'
 
+require 'support/fixture'
 require 'support/test_configuration'
 include Support::TestConfiguration
 

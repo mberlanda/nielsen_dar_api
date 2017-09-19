@@ -2,6 +2,9 @@ AllCops:
   TargetRubyVersion: 2.4
 Documentation:
   Enabled: false
+Lint/UselessAssignment:
+  Exclude:
+    - docs/standalone/example.rb
 Metrics/BlockLength:
   Max: 35
   Exclude:

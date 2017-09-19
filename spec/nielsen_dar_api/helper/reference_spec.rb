@@ -16,4 +16,16 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   it { should respond_to(:market_area_list) }
   it { should respond_to(:platform_list) }
   it { should respond_to(:site_list) }
+
+  %i[
+    available_campaign demographic platform
+    market_area campaign site
+  ].each do |m|
+    it "##{m}_list" do
+      allow(MockedClient).to receive("#{m}_list").and_return(
+        Support::Fixture.send("#{m}_response")
+      )
+      expect(MockedClient.send("#{m}_list")).to eq([])
+    end
+  end
 end
