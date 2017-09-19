@@ -19,16 +19,7 @@ And then execute:
 
 ## Rails Usage
 
-Assuming that you are using it inside a Rails Application, you should create an initializer as follows:
-
-```rb
-# config/initializers/nielsen_dar_api.rb
-NielsenDarApi.configure do |config|
-  config.username = ENV['NIELSEN_DAR_USERNAME'] # or something like 'someone@example.com'
-  config.password = ENV['NIELSEN_DAR_PASSWORD'] # or something like 'password'
-  config.basic_token = ENV['NIELSEN_DAR_BASIC_TOKEN'] # or something like 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA=='
-end
-```
+Please refer to the [Rails Usage documentation](docs/rails.md)
 
 ## Standalone Usage
 

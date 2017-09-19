@@ -1,6 +1,6 @@
-# NielsenDarApi Standalone Usage
+# NielsenDarApi Rails Usage
 
-This gem can be used inside any ruby project - even outside frameworks.
+This gem was extracted from a lib inside a Rails application and it would be very easy to integrate inside such apps.
 
 ## Installation
 
@@ -14,13 +14,13 @@ end
 
 ## Usage
 
-You can refer to [this example](standalone/example.rb) for a working sample.
+You can refer to [this folder structure](rails/) for a skeleton.
 
 ### 1. Gem Configuration
 
 In order to work, this gem requires your credentials to be set in the configuration:
 ```ruby
-require 'nielsen_dar_api'
+# config/initializers/nielsen_dar_api.rb
 
 NielsenDarApi.configure do |config|
   config.username = ENV['NIELSEN_DAR_USERNAME'] # 'email'
@@ -32,17 +32,21 @@ I would suggest to set this values as environment variables, but you can hard-co
 
 You can even change some default settings such as `config.country_code= 'IT'`
 
-### 2. Instantiate a Client
+[Sample configuration](rails/config/initializers/nielsen_dar_api.rb)
+
+### 2. Create a Client class
 
 At the current stage, there is not yet a proper Client class.
-You can create one very easily:
+You can create one very easily under your lib folder:
 
 ```ruby
-class SampleClient
+# app/lib/nielsen_client.rb
+class NielsenClient
   include NielsenDarApi::Helper
 end
-client = SampleClient.new
 ```
+
+[Sample Client](rails/app/lib/nielsen_client.rb)
 
 ### 3. The API flow
 
@@ -54,3 +58,5 @@ When I work on Nielsen DAR Reporting API I tend to follow this flow for every im
 - process_market_areas : get details about available market areas (this feature seems to be available only for US `countryCode`)
 - process_campaigns : get details about campaigns
 - process_placements : get details about the sites where the available campaigns are tracked
+
+At every step I save data into the db and/or to file
