@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "campaignId": 123456789,
+    "siteId": -1,
+    "siteName": "All",
+    "siteURL": "",
+    "adNetworkFlag": "D",
+    "placementId": -1,
+    "placementName": "All",
+    "countryCode": "IT"
+  },
+  {
+    "campaignId": 123456789,
+    "siteId": 202874913,
+    "siteName": "Instagram",
+    "siteURL": "www.instagram.com",
+    "adNetworkFlag": "T",
+    "placementId": 987654321,
+    "tagPlacementId": "plc30251005",
+    "placementName": "Carousel_Instagram1",
+    "countryCode": "IT",
+    "placementStatus": "Completed"
+  }
+]

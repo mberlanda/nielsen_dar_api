@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "platformCode": 1,
+    "platformDescription": "Computer"
+  }
+]

@@ -46,7 +46,6 @@ module NielsenDarApi
 
       def compose_authorization_headers
         {
-          'Content-Type' => 'application/x-www-form-urlencoded',
           'Authorization' => NielsenDarApi.configuration.basic_token
         }
       end

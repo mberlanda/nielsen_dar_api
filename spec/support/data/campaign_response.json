@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "campaignId": 123456789,
+    "parentCampaignId": 123456789,
+    "campaignName": "ITA - Advertiser Campaign",
+    "advertiserId": "012345",
+    "advertiserName": "ADVERTISER NAME",
+    "brandId": "bnd000000000000",
+    "brandName": "ADVERTISER | BRAND NAME",
+    "campaignStartDate": "10\/23\/2016",
+    "campaignEndDate": "12\/22\/2016",
+    "mediaType": "OCR",
+    "targetDemo": "B",
+    "targetStartAge": 18,
+    "targetEndAge": 54,
+    "adReferenceCampaignId": "cmp000004",
+    "countryCode": "IT",
+    "viewabilityEnabled": "N",
+    "viewabilityProviderName": ""
+  }
+]

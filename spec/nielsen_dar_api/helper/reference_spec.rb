@@ -17,15 +17,128 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   it { should respond_to(:platform_list) }
   it { should respond_to(:site_list) }
 
-  %i[
-    available_campaign demographic platform
-    market_area campaign site
-  ].each do |m|
-    it "##{m}_list" do
-      allow(MockedClient).to receive("#{m}_list").and_return(
-        Support::Fixture.send("#{m}_response")
+  context '#available_campaign_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('available_campaign_list').and_return(
+        Support::Fixture.available_campaign_response
       )
-      expect(MockedClient.send("#{m}_list")).to eq([])
+      expect(MockedClient.available_campaign_list).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('available_campaign_list').and_return(
+        Support::Fixture.available_campaign_response
+      )
+      expected_keys = %w[
+        campaignId parentCampaignId reportDate startDate
+        reportStatus campaignStatus releaseStatus dataReleaseId
+      ]
+      actual = MockedClient.available_campaign_list
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
+    end
+  end
+
+  context '#demographic_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('demographic_list').and_return(
+        Support::Fixture.demographic_response
+      )
+      expect(MockedClient.demographic_list).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('demographic_list').and_return(
+        Support::Fixture.demographic_response
+      )
+      expected_keys = %w[
+        demoId demoGroupGender demoGroupAlphaCode demoGroupStartAge demoGroupEndAge
+      ]
+      actual = MockedClient.demographic_list
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
+    end
+  end
+
+  context '#platform_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('platform_list').and_return(
+        Support::Fixture.platform_response
+      )
+      expect(MockedClient.platform_list).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('platform_list').and_return(
+        Support::Fixture.platform_response
+      )
+      expected_keys = %w[
+        platformCode platformDescription
+      ]
+      actual = MockedClient.platform_list
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
+    end
+  end
+
+  context '#market_area_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('market_area_list').and_return(
+        Support::Fixture.market_area_response
+      )
+      expect(MockedClient.market_area_list).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('market_area_list').and_return(
+        Support::Fixture.market_area_response
+      )
+      expected_keys = %w[
+        countryCode countryName dmaCode dmaName
+      ]
+      actual = MockedClient.market_area_list
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
+    end
+  end
+
+  context '#campaign_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('campaign_list').and_return(
+        Support::Fixture.campaign_response
+      )
+      expect(MockedClient.campaign_list(Date.new)).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('campaign_list').and_return(
+        Support::Fixture.campaign_response
+      )
+      expected_keys = %w[
+        campaignId parentCampaignId campaignName advertiserId
+        advertiserName brandId brandName campaignStartDate campaignEndDate
+        mediaType targetDemo targetStartAge targetEndAge adReferenceCampaignId
+        countryCode viewabilityEnabled viewabilityProviderName
+      ]
+      actual = MockedClient.campaign_list(Date.new)
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
+    end
+  end
+
+  context '#site_list' do
+    it 'should receive an array of items' do
+      allow(MockedClient).to receive('site_list').and_return(
+        Support::Fixture.site_response
+      )
+      expect(MockedClient.site_list([])).to be_a(Array)
+    end
+    it 'should return items with expected keys' do
+      allow(MockedClient).to receive('site_list').and_return(
+        Support::Fixture.site_response
+      )
+      expected_keys = %w[
+        campaignId siteId siteName siteURL adNetworkFlag
+        placementId placementName countryCode
+      ]
+      actual = MockedClient.site_list([])
+      actual_keys = actual.first.keys
+      expect(actual_keys).to include(*expected_keys)
     end
   end
 end

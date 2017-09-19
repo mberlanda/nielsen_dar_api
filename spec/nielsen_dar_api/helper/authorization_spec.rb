@@ -28,7 +28,7 @@ RSpec.describe NielsenDarApi::Helper::Authorization do
     it '#compose_authorization_headers' do
       expect(authorizer.send(:compose_authorization_headers)).to eq(
         'Authorization' => 'Basic c29tZW9uZUBleGFtcGxlLmNvbTpwYXNzd29yZA==',
-        'Content-Type' => 'application/x-www-form-urlencoded'
+        # 'Content-Type' => 'application/x-www-form-urlencoded'
       )
     end
   end

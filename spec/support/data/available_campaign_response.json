@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "campaignId": 123456789,
+    "parentCampaignId": 123456789,
+    "reportDate": "12\/23\/2016",
+    "startDate": "10\/23\/2016",
+    "reportStatus": "Initial Release",
+    "campaignStatus": "Completed",
+    "releaseStatus": "Released",
+    "dataReleaseId": 1
+  }
+]
