@@ -10,8 +10,8 @@ It may be not include all possible endpoints.
 Add this line to your application's Gemfile:
 
 ```ruby
-git 'https://github.com/mberlanda/nielsen_dar_api.git', branch: 'master' do
-  gem 'nielsen_dar_api'
+git 'https://github.com/mberlanda/nielsen_dar_api.git' do
+  gem 'nielsen_dar_api', ~> '0.1.0'
 end
 ```
 
