@@ -20,13 +20,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#available_campaign_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('available_campaign_list').and_return(
-        Support::Fixture.available_campaign_response
+        Support::Fixture.available_campaign_reference_response
       )
       expect(MockedClient.available_campaign_list).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('available_campaign_list').and_return(
-        Support::Fixture.available_campaign_response
+        Support::Fixture.available_campaign_reference_response
       )
       expected_keys = %w[
         campaignId parentCampaignId reportDate startDate
@@ -41,13 +41,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#demographic_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('demographic_list').and_return(
-        Support::Fixture.demographic_response
+        Support::Fixture.demographic_reference_response
       )
       expect(MockedClient.demographic_list).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('demographic_list').and_return(
-        Support::Fixture.demographic_response
+        Support::Fixture.demographic_reference_response
       )
       expected_keys = %w[
         demoId demoGroupGender demoGroupAlphaCode demoGroupStartAge demoGroupEndAge
@@ -61,13 +61,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#platform_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('platform_list').and_return(
-        Support::Fixture.platform_response
+        Support::Fixture.platform_reference_response
       )
       expect(MockedClient.platform_list).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('platform_list').and_return(
-        Support::Fixture.platform_response
+        Support::Fixture.platform_reference_response
       )
       expected_keys = %w[
         platformCode platformDescription
@@ -81,13 +81,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#market_area_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('market_area_list').and_return(
-        Support::Fixture.market_area_response
+        Support::Fixture.market_area_reference_response
       )
       expect(MockedClient.market_area_list).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('market_area_list').and_return(
-        Support::Fixture.market_area_response
+        Support::Fixture.market_area_reference_response
       )
       expected_keys = %w[
         countryCode countryName dmaCode dmaName
@@ -101,13 +101,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#campaign_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('campaign_list').and_return(
-        Support::Fixture.campaign_response
+        Support::Fixture.campaign_reference_response
       )
       expect(MockedClient.campaign_list(Date.new)).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('campaign_list').and_return(
-        Support::Fixture.campaign_response
+        Support::Fixture.campaign_reference_response
       )
       expected_keys = %w[
         campaignId parentCampaignId campaignName advertiserId
@@ -124,13 +124,13 @@ RSpec.describe NielsenDarApi::Helper::Reference do
   context '#site_list' do
     it 'should receive an array of items' do
       allow(MockedClient).to receive('site_list').and_return(
-        Support::Fixture.site_response
+        Support::Fixture.site_reference_response
       )
       expect(MockedClient.site_list([])).to be_a(Array)
     end
     it 'should return items with expected keys' do
       allow(MockedClient).to receive('site_list').and_return(
-        Support::Fixture.site_response
+        Support::Fixture.site_reference_response
       )
       expected_keys = %w[
         campaignId siteId siteName siteURL adNetworkFlag

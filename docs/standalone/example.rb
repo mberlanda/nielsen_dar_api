@@ -51,3 +51,43 @@ sites = []
 campaigns_map.each_slice(chunk_size) do |chunk|
   sites << client.site_list(chunk)
 end
+
+# process_campaign_exposures
+# retrieves all data for campaigns exposure
+campaign_data = []
+campaigns_map.each_slice(chunk_size) do |chunk|
+  campaign_data << client.campaign_exposure_list(chunk)
+end
+
+# process_placement_exposures
+placement_data = []
+campaigns_map.each_slice(chunk_size) do |chunk|
+  placement_data << client.placement_exposure_list(chunk)
+end
+
+
+# process_placement_daily_data
+# This is pretty tricky
+report_dates = Hash[available_campaigns.map do |h|
+  [h['campaignId'], Date.strptime(h['reportDate'], NielsenDarApi.configuration.date_format)]
+end]
+start_dates = Hash[campaigns.map do |h|
+  [h['campaignId'], Date.strptime(h['campaignStartDate'], NielsenDarApi.configuration.date_format)]
+end]
+end_dates = Hash[campaigns.map do |h|
+  [h['campaignId'], Date.strptime(h['campaignEndDate'], NielsenDarApi.configuration.date_format)]
+end]
+max_dates = {} # if already collected and stored somewhere
+
+placement_daily_data = []
+report_dates.each do |original_id, report_date|
+  client.refresh_access_token
+  start_date = [start_dates.fetch(original_id), max_dates[original_id]].compact.max
+  end_date = [end_dates.fetch(original_id), report_date].min
+  range_dates = (start_date..end_date).to_a
+
+  range_dates.each_slice(5) do |date_slice|
+    list = client.placement_daily_datum_list(original_id, date_slice)
+    placement_daily_data << list
+  end
+end

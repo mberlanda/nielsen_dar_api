@@ -3,12 +3,10 @@
 module Support
   class Fixture
     class << self
-      %i[
-        available_campaign demographic platform
-        market_area campaign site
-      ].each do |m|
-        define_method("#{m}_response") do
-          JSON.parse(File.read(file_path("#{m}_response.json")))
+      Dir.glob(File.expand_path('../data/*.json', __FILE__)).each do |file|
+        method_name = File.basename( file, '.*' )
+        define_method(method_name) do
+          JSON.parse(File.read(file))
         end
       end
 

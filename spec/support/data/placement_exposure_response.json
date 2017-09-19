@@ -1,0 +1,27 @@
+[
+  {
+    "campaignDataDate": "08\/01\/2016",
+    "campaignId": 123456789,
+    "platformId": 1,
+    "countryCode": "IT",
+    "demoGroupId": "",
+    "demoId": 1999,
+    "placementId": 987654321,
+    "tagPlacementId": "plc30251005",
+    "siteId": 202874913,
+    "reach": "156352",
+    "impressions": "1746421",
+    "universeEstimate": "28227790",
+    "measuredRate": "",
+    "viewableRate": "",
+    "viewableImpressions": "",
+    "viewableImpressionsPercentage": "",
+    "OutOfViewImpressions": "",
+    "OutOfViewImpressionsPercentage": "",
+    "undeterminedImpressions": "",
+    "undeterminedImpressionsPercentage": "",
+    "suspiciousImpressions": "",
+    "suspiciousImpressionsPercentage": "",
+    "viewableReach": ""
+  }
+]

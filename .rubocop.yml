@@ -11,5 +11,7 @@ Metrics/BlockLength:
     - spec/**/*
 Metrics/LineLength:
   Max: 125
+Metrics/MethodLength:
+  Max: 11
 Style/Encoding:
   Enabled: false
