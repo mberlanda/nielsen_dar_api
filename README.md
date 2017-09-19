@@ -1,5 +1,7 @@
 # NielsenDarApi
 
+[![Build Status](https://travis-ci.org/mberlanda/nielsen_dar_api.svg)](https://travis-ci.org/mberlanda/nielsen_dar_api)
+
 The purpose of this gem is to make calls to Nielsen DAR reporting API.
 It may be not include all possible endpoints.
 
