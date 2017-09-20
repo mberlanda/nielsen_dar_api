@@ -8,8 +8,20 @@ Add this line to your application's Gemfile:
 
 ```ruby
 git 'https://github.com/mberlanda/nielsen_dar_api.git' do
-  gem 'nielsen_dar_api'
+  gem 'nielsen_dar_api', '0.1.0'
 end
+```
+
+If you want to use it in `irb` console, see this answer on [StackOverflow](https://stackoverflow.com/a/26959406/5687152) regarding gems installed from git repositories:
+
+```
+$ bundle exec irb
+# or
+$ irb
+2.4.0 :001 > require 'bundler/setup'
+true
+2.4.0 :002 > require 'nielsen_dar_api'
+true
 ```
 
 ## Usage
