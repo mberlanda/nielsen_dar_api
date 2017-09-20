@@ -7,7 +7,7 @@ This gem was extracted from a lib inside a Rails application and it would be ver
 Add this line to your application's Gemfile:
 
 ```ruby
-git 'https://github.com/mberlanda/nielsen_dar_api.git', branch: 'master' do
+git 'https://github.com/mberlanda/nielsen_dar_api.git' do
   gem 'nielsen_dar_api'
 end
 ```
